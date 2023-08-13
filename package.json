@@ -1,0 +1,14 @@
+{
+  "name": "quick-translation",
+  "version": "1.0.0",
+  "description": "Translation application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "LP & NF",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^25.5.0"
+  }
+}
