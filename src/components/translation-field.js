@@ -4,45 +4,57 @@ let languages = {
     'pt-BR': 'Portuguese BR'
 }
 
-function fieldFeaturesToTranslation() {
-    let language = document.getElementById('language-title-0');
-    let text = document.getElementById('text-in-selected-language-0');
+let primaryLanguage = localStorage.getItem('primaryLanguage');
+let secondaryLanguage = localStorage.getItem('secondaryLanguage');
 
-    language.innerText = languages['en-US'];
-    text.focus();
+async function translateAsync(sourceLanguage, targetLanguage, textToTranslate) {
+    let translation = null;
+    let apiUrlMyMemory = `https://api.mymemory.translated.net/get?q=${textToTranslate}&langpair=${sourceLanguage}|${targetLanguage}`;
 
-    text.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Impede que o caractere de nova linha seja inserido
-            translateAsync();
-        }
-    });
-}
-
-function fieldFeaturesTranslationResult() {
-    let language = document.getElementById('language-title-1');
-    let text = document.getElementById('text-in-selected-language-1');
-
-    language.innerText = languages['pt-BR'];
-}
-
-function translateAsync() {
-    let textToTranslate = document.getElementById('text-in-selected-language-0').value;
-    let translatedTextResult = document.getElementById('text-in-selected-language-1');
-    
-    let apiUrlMyMemory = `https://api.mymemory.translated.net/get?q=${textToTranslate}&langpair=en-us|pt-br`;
-    
-    translatedTextResult.value = '...';
-    
-    fetch(apiUrlMyMemory)
+    return fetch(apiUrlMyMemory)
         .then(res => res.json())
         .then(data => {
-            let translation = data.responseData.translatedText;
-            translatedTextResult.value = translation;
-
-            navigator.clipboard.writeText(translation);
+            translation = data.responseData.translatedText;
+            return translation;
         })
-        .catch(err => translatedTextResult.value = err)
+        .catch(err => {
+            console.log(err);
+            translation = null;
+            return translation;
+        })
+}
+
+async function separationOfResponsibilityBetweenFields(fieldOrder) {
+    let language = null;
+    let textField = null;
+    let translationResultField = null;
+    let sourceLanguage = null;
+    let targetLanguage = null;
+
+    if (fieldOrder === 'primary') {
+        language = document.getElementById('language-title-0');
+        textField = document.getElementById('text-in-selected-language-0');
+        translationResultField = document.getElementById('text-in-selected-language-1');
+        sourceLanguage = primaryLanguage;
+        targetLanguage = secondaryLanguage;
+    } else {
+        language = document.getElementById('language-title-1');
+        textField = document.getElementById('text-in-selected-language-1');
+        translationResultField = document.getElementById('text-in-selected-language-0');
+        sourceLanguage = secondaryLanguage;
+        targetLanguage = primaryLanguage;
+    }
+
+    translationResultField.value = '...';
+
+    let textToTranslate = textField.value;
+    let translatedText = await translateAsync(sourceLanguage, targetLanguage, textToTranslate);
+
+    if (translatedText !== null) {
+        navigator.clipboard.writeText(translatedText);
+    }
+
+    translationResultField.value = translatedText;
 }
 
 export function createTranslationField() {
@@ -56,6 +68,8 @@ export function createTranslationField() {
         languageTitle.style.letterSpacing = '1px';
         languageTitle.style.color = '#FFFFFF';
         languageTitle.style.opacity = 0.7;
+
+        languageTitle.innerText = i === 0 ? languages[primaryLanguage] : languages[secondaryLanguage];
 
         let textInSelectedLanguage = document.createElement('textarea');
         textInSelectedLanguage.setAttribute('id', `text-in-selected-language-${i}`);
@@ -74,10 +88,20 @@ export function createTranslationField() {
             this.style.outline = 'none';
         });
 
+        // Adicionando funcionalidade de tradução ao clicar no Enter
+        textInSelectedLanguage.addEventListener('keydown', async function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Impede que o caractere de nova linha seja inserido
+                let fieldOrder = i === 0 ? 'primary' : 'secondary';
+                await separationOfResponsibilityBetweenFields(fieldOrder);
+            }
+        });
+
         translationFields[i].appendChild(languageTitle);
         translationFields[i].appendChild(textInSelectedLanguage);
-    }
 
-    fieldFeaturesToTranslation();
-    fieldFeaturesTranslationResult();
+        if (i === 0) {
+            textInSelectedLanguage.focus();
+        }
+    }
 }
