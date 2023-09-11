@@ -1,5 +1,6 @@
-const { app, BrowserWindow, screen, globalShortcut } = require('electron')
+const { app, BrowserWindow, screen, globalShortcut, ipcMain } = require('electron')
 
+let minimizeAndMaximize = true;
 let windowState = 'maximized';
 
 const createWindow = (width, height) => {
@@ -15,6 +16,10 @@ const createWindow = (width, height) => {
         frame: false, // Removendo a barra superior
         webPreferences: {
             transparent: true,
+            // Permitindo integrando do node no front-end
+            nodeIntegration: true,
+            contextIsolation: false,
+            enableRemoteModule: true,
         }
     })
 
@@ -32,31 +37,35 @@ const createWindow = (width, height) => {
 
     // Detectar quando a janela perde o foco (quando o usuário clica fora dela)
     win.on('blur', () => {
-        win.resizable = true;
-        win.setOpacity(0.2)
-        win.loadFile('src/views/minimize.html');
-        win.setSize(50, 50);
-        win.resizable = false;
-        win.setPosition(width - 55, height - 55);
-        windowState = 'minimized';
+        if (minimizeAndMaximize) {
+            win.resizable = true;
+            win.setOpacity(0.2)
+            win.loadFile('src/views/minimize.html');
+            win.setSize(50, 50);
+            win.resizable = false;
+            win.setPosition(width - 55, height - 55);
+            windowState = 'minimized';
+        }
     });
 
     // Detectar quando a janela ganha o foco novamente
     win.on('focus', () => {
-        win.resizable = true;
-        win.setOpacity(0.76)
-        win.loadFile('src/views/index.html');
-        win.setSize(250, 350);
-        win.resizable = false;
-        win.setPosition(width - 255, height - 355);
-        windowState = 'maximized';
+        if (minimizeAndMaximize) {
+            win.resizable = true;
+            win.setOpacity(0.76)
+            win.loadFile('src/views/index.html');
+            win.setSize(250, 350);
+            win.resizable = false;
+            win.setPosition(width - 255, height - 355);
+            windowState = 'maximized';
+        }
     });
 
     // Registrar o atalho global Ctrl + T
     globalShortcut.register('CommandOrControl+T', () => {
         // Quando o atalho for acionado, trazer a janela para frente
         if (win) {
-            if (windowState === 'maximized'){
+            if (windowState === 'maximized') {
                 win.blur();
             } else {
                 win.focus();
@@ -76,3 +85,12 @@ app.whenReady().then(() => {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize;
     createWindow(width, height)
 })
+
+// Configure um ouvinte para a mensagem 'toggleMinimizeOnBlur'
+ipcMain.on('minimizeAndMaximizeMode', (event, pinMode) => {
+    if (pinMode === 'On') {
+        minimizeAndMaximize = false;
+    } else {
+        minimizeAndMaximize = true;
+    }
+});

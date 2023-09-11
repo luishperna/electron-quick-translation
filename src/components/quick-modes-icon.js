@@ -1,4 +1,5 @@
 import { createInformationDialog } from "./information-dialog.js";
+const { ipcRenderer } = require('electron');
 
 let devMode = '';
 let pinMode = '';
@@ -38,6 +39,7 @@ function separationOfResponsibilityBetweenFields(quickMode) {
 
         pinMode = pinMode == 'Off' ? 'On' : 'Off';
         localStorage.setItem('pinMode', pinMode);
+        ipcRenderer.send('minimizeAndMaximizeMode', pinMode);
 
         pinModeIcon.style.opacity = pinMode === 'Off' ? 0.2 : 1;
     }
