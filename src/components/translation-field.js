@@ -1,3 +1,5 @@
+import { createWarningMessage } from "./warning-message.js";
+
 let languages = {
     'en-US': 'English US',
     'en-CA': 'English CA',
@@ -52,6 +54,7 @@ async function separationOfResponsibilityBetweenFields(fieldOrder) {
 
     if (translatedText !== null) {
         navigator.clipboard.writeText(translatedText);
+        createWarningMessage('Copied');
     }
 
     translationResultField.value = translatedText;
