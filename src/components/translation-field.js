@@ -1,17 +1,20 @@
 import { createWarningMessage } from "./warning-message.js";
+import { getLanguageNameByCode, getSourceLanguageCode, getTargetLanguageCode } from "./set-and-get-languages.js";
 
-let languages = {
-    'en-US': 'English US',
-    'en-CA': 'English CA',
-    'pt-BR': 'Portuguese BR'
+let sourceLanguageCode = getSourceLanguageCode();
+let targetLanguageCode = getTargetLanguageCode();
+
+export function setLanguageTitleSource(languageName) {
+    document.getElementById('language-title-source').textContent = languageName;
 }
 
-let primaryLanguage = localStorage.getItem('primaryLanguage');
-let secondaryLanguage = localStorage.getItem('secondaryLanguage');
+export function setLanguageTitleTarget(languageName) {
+    document.getElementById('language-title-target').textContent = languageName;
+}
 
-async function translateAsync(sourceLanguage, targetLanguage, textToTranslate) {
+async function translateAsync(sourceLanguageCode, targetLanguageCode, textToTranslate) {
     let translation = null;
-    let apiUrlMyMemory = `https://api.mymemory.translated.net/get?q=${textToTranslate}&langpair=${sourceLanguage}|${targetLanguage}`;
+    let apiUrlMyMemory = `https://api.mymemory.translated.net/get?q=${textToTranslate}&langpair=${sourceLanguageCode}|${targetLanguageCode}`;
 
     return fetch(apiUrlMyMemory)
         .then(res => res.json())
@@ -26,31 +29,31 @@ async function translateAsync(sourceLanguage, targetLanguage, textToTranslate) {
         })
 }
 
-async function separationOfResponsibilityBetweenFields(fieldOrder) {
+async function separationOfResponsibilityBetweenFields(destination) {
     let language = null;
     let textField = null;
     let translationResultField = null;
-    let sourceLanguage = null;
-    let targetLanguage = null;
+    let sourceLanguageCodeCurrent = null;
+    let targetLanguageCodeCurrent = null;
 
-    if (fieldOrder === 'primary') {
-        language = document.getElementById('language-title-0');
-        textField = document.getElementById('text-in-selected-language-0');
-        translationResultField = document.getElementById('text-in-selected-language-1');
-        sourceLanguage = primaryLanguage;
-        targetLanguage = secondaryLanguage;
+    if (destination === 'source') {
+        language = document.getElementById('language-title-source');
+        textField = document.getElementById('text-in-selected-language-source');
+        translationResultField = document.getElementById('text-in-selected-language-target');
+        sourceLanguageCodeCurrent = getSourceLanguageCode();
+        targetLanguageCodeCurrent = getTargetLanguageCode();
     } else {
-        language = document.getElementById('language-title-1');
-        textField = document.getElementById('text-in-selected-language-1');
-        translationResultField = document.getElementById('text-in-selected-language-0');
-        sourceLanguage = secondaryLanguage;
-        targetLanguage = primaryLanguage;
+        language = document.getElementById('language-title-target');
+        textField = document.getElementById('text-in-selected-language-target');
+        translationResultField = document.getElementById('text-in-selected-language-source');
+        sourceLanguageCodeCurrent = getTargetLanguageCode();
+        targetLanguageCodeCurrent = getSourceLanguageCode();
     }
 
     translationResultField.value = '...';
 
     let textToTranslate = textField.value;
-    let translatedText = await translateAsync(sourceLanguage, targetLanguage, textToTranslate);
+    let translatedText = await translateAsync(sourceLanguageCodeCurrent, targetLanguageCodeCurrent, textToTranslate);
 
     if (translatedText !== null) {
         navigator.clipboard.writeText(translatedText);
@@ -65,17 +68,17 @@ export function createTranslationField() {
 
     for (let i = 0; i < translationFields.length; i++) {
         let languageTitle = document.createElement('h3');
-        languageTitle.setAttribute('id', `language-title-${i}`);
+        languageTitle.setAttribute('id', `language-title-${i === 0 ? 'source' : 'target'}`);
         languageTitle.style.fontSize = '12px';
         languageTitle.style.fontWeight = 'normal';
         languageTitle.style.letterSpacing = '1px';
         languageTitle.style.color = '#FFFFFF';
         languageTitle.style.opacity = 0.7;
 
-        languageTitle.innerText = i === 0 ? languages[primaryLanguage] : languages[secondaryLanguage];
+        languageTitle.textContent = i === 0 ? getLanguageNameByCode(sourceLanguageCode) : getLanguageNameByCode(targetLanguageCode);
 
         let textInSelectedLanguage = document.createElement('textarea');
-        textInSelectedLanguage.setAttribute('id', `text-in-selected-language-${i}`);
+        textInSelectedLanguage.setAttribute('id', `text-in-selected-language-${i === 0 ? 'source' : 'target'}`);
         textInSelectedLanguage.style.width = '225px'
         textInSelectedLanguage.style.fontFamily = 'sans-serif';
         textInSelectedLanguage.style.fontSize = '16px';
@@ -95,8 +98,8 @@ export function createTranslationField() {
         textInSelectedLanguage.addEventListener('keydown', async function (event) {
             if (event.key === 'Enter') {
                 event.preventDefault(); // Impede que o caractere de nova linha seja inserido
-                let fieldOrder = i === 0 ? 'primary' : 'secondary';
-                await separationOfResponsibilityBetweenFields(fieldOrder);
+                let destination = i === 0 ? 'source' : 'target';
+                await separationOfResponsibilityBetweenFields(destination);
             }
         });
 

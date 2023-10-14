@@ -1,24 +1,7 @@
-let languages = [
-    {
-        name: 'Spanish ES',
-        code: 'es-ES'
-    },
-    {
-        name: 'English US',
-        code: 'en-US'
-    },
-    {
-        name: 'English CA',
-        code: 'en-CA'
-    },
-    {
-        name: 'Portuguese BR',
-        code: 'pt-BR'
-    }
-]
+import { allLanguages, getSourceLanguageCode, getTargetLanguageCode, setSourceLanguage, setTargetLanguage } from "./set-and-get-languages.js";
 
-let primaryLanguage = localStorage.getItem('primaryLanguage');
-let secondaryLanguage = localStorage.getItem('secondaryLanguage');
+let sourceLanguageCode = getSourceLanguageCode();
+let targetLanguageCode = getTargetLanguageCode();
 
 export function reserveLanguages() {
     let selectionLanguageSource = document.getElementById('selection-language-source');
@@ -29,6 +12,9 @@ export function reserveLanguages() {
 
     selectionLanguageSource.value = languageTargetCurrent;
     selectionLanguageTarget.value = languageSourceCurrent;
+
+    setSourceLanguage(languageTargetCurrent);
+    setTargetLanguage(languageSourceCurrent);
 }
 
 export function createChangeBetweenLanguagesField() {
@@ -49,19 +35,29 @@ export function createChangeBetweenLanguagesField() {
         languageSelectionField.style.opacity = 0.7;
         languageSelectionField.style.textAlign = 'center';
 
+        languageSelectionField.addEventListener('change', () => {
+            let selectedLanguage = languageSelectionField.value;
+
+            if (i === 0) {
+                setSourceLanguage(selectedLanguage);
+            } else {
+                setTargetLanguage(selectedLanguage);
+            }
+        });
+
         changeBetweenLanguagesFields[i].appendChild(languageSelectionField);
     }
 
     let selectionLanguageSource = document.getElementById("selection-language-source");
     let selectionLanguageTarget = document.getElementById("selection-language-target");
 
-    languages.forEach((language) => {
+    allLanguages.forEach((language) => {
         let languageOption = new Option(language.code.toUpperCase(), language.code);
 
         selectionLanguageSource.add(languageOption.cloneNode(true));
         selectionLanguageTarget.add(languageOption);
     });
 
-    selectionLanguageSource.value = primaryLanguage;
-    selectionLanguageTarget.value = secondaryLanguage;
+    selectionLanguageSource.value = sourceLanguageCode;
+    selectionLanguageTarget.value = targetLanguageCode;
 }
