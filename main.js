@@ -1,10 +1,11 @@
 const { app, BrowserWindow, screen, globalShortcut, ipcMain } = require('electron')
 
+let win = null;
 let minimizeAndMaximize = true;
 let windowState = 'maximized';
 
 const createWindow = (width, height) => {
-    const win = new BrowserWindow({
+    win = new BrowserWindow({
         width: 250,
         height: 350,
         resizable: false,
@@ -86,11 +87,18 @@ app.whenReady().then(() => {
     createWindow(width, height)
 })
 
-// Configure um ouvinte para a mensagem 'toggleMinimizeOnBlur'
+// Configura um ouvinte para a mensagem 'toggleMinimizeOnBlur'
 ipcMain.on('minimizeAndMaximizeMode', (event, pinMode) => {
     if (pinMode === 'On') {
         minimizeAndMaximize = false;
     } else {
         minimizeAndMaximize = true;
+    }
+});
+
+// Configura um ouvinte para a mensagem de fechar o aplicativo
+ipcMain.on('closeApplication', () => {
+    if (win) {
+        win.close();
     }
 });
