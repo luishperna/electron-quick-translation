@@ -12,6 +12,22 @@ export function setLanguageTitleTarget(languageName) {
     document.getElementById('language-title-target').textContent = languageName;
 }
 
+export function cleanTranslationFields() {
+    document.getElementById('text-in-selected-language-source').value = "";
+    document.getElementById('text-in-selected-language-target').value = "";
+}
+
+export function changeValuesBetweenTranslationFields() {
+    let textInSelectedLanguageSource = document.getElementById('text-in-selected-language-source');
+    let textInSelectedLanguageTarget = document.getElementById('text-in-selected-language-target');
+
+    const textLanguageSourceCurrent = textInSelectedLanguageSource.value;
+    const textLanguageTargetCurrent = textInSelectedLanguageTarget.value;
+
+    textInSelectedLanguageSource.value = textLanguageTargetCurrent;
+    textInSelectedLanguageTarget.value = textLanguageSourceCurrent;
+}
+
 async function translateAsync(sourceLanguageCode, targetLanguageCode, textToTranslate) {
     let translation = null;
     let apiUrlMyMemory = `https://api.mymemory.translated.net/get?q=${textToTranslate}&langpair=${sourceLanguageCode}|${targetLanguageCode}`;

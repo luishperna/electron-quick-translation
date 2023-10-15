@@ -1,4 +1,5 @@
 import { allLanguages, getSourceLanguageCode, getTargetLanguageCode, setSourceLanguage, setTargetLanguage } from "./set-and-get-languages.js";
+import { changeValuesBetweenTranslationFields, cleanTranslationFields } from "./translation-field.js";
 
 let sourceLanguageCode = getSourceLanguageCode();
 let targetLanguageCode = getTargetLanguageCode();
@@ -15,6 +16,8 @@ export function reserveLanguages() {
 
     setSourceLanguage(languageTargetCurrent);
     setTargetLanguage(languageSourceCurrent);
+
+    changeValuesBetweenTranslationFields();
 }
 
 export function createChangeBetweenLanguagesField() {
@@ -43,6 +46,8 @@ export function createChangeBetweenLanguagesField() {
             } else {
                 setTargetLanguage(selectedLanguage);
             }
+
+            cleanTranslationFields();
         });
 
         changeBetweenLanguagesFields[i].appendChild(languageSelectionField);
