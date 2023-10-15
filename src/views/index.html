@@ -1,45 +1,15 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
     <title>Quick translation</title>
-
-    <style>
-      .quick-icons {
-        display: flex;
-        justify-content: end;
-        gap: 10px;
-      }
-
-      .change-between-languages {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 14px;
-      }
-    </style>
   </head>
   
   <body>
-    <div class="quick-icons">
-      <div class="quick-mode-icon"></div>
-      <div class="quick-mode-icon"></div>
-      <div class="close-application-icon"></div>
-    </div>
-
-    <div class="translation-field"></div>
-    <div class="separation-line"></div>
-    <div class="translation-field"></div>
-
-    <div class="change-between-languages">
-      <div class="change-language-field"></div>
-      <div class="reverse-languages"></div>
-      <div class="change-language-field"></div>
-    </div>
-    
-    <div class="warning-message"></div>
+    <div id="index-page"></div>
+    <script type="module" src="../components/template/index-page.js"></script>
   </body>
-
-  <script type="module" src="../components/redirection-all-components.js"></script>
+  
 </html>

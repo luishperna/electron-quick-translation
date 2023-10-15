@@ -1,4 +1,4 @@
-import { setLanguageTitleSource, setLanguageTitleTarget } from "./translation-field.js";
+import { setLanguageTitleSource, setLanguageTitleTarget } from "../../components/layout/translation-field.js";
 
 export const allLanguages = [
     {

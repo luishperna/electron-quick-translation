@@ -1,4 +1,4 @@
-import { allLanguages, getSourceLanguageCode, getTargetLanguageCode, setSourceLanguage, setTargetLanguage } from "./set-and-get-languages.js";
+import { allLanguages, getSourceLanguageCode, getTargetLanguageCode, setSourceLanguage, setTargetLanguage } from "../../core/languages/set-and-get-languages.js";
 import { changeValuesBetweenTranslationFields, cleanTranslationFields } from "./translation-field.js";
 
 let sourceLanguageCode = getSourceLanguageCode();
