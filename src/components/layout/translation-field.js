@@ -2,6 +2,7 @@ import { getLanguageNameByCode, getSourceLanguageCode, getTargetLanguageCode } f
 import { createWarningMessage } from "./warning-message.js";
 import { translateAsync } from "../../core/translation/translate.js";
 import { formatForProgrammingLanguage } from "../../core/formations/format-for-programming-language.js";
+import { getProgrammingLanguage } from "../../core/formations/set-and-get-programming-languages.js";
 
 let sourceLanguageCode = getSourceLanguageCode();
 let targetLanguageCode = getTargetLanguageCode();
@@ -60,7 +61,7 @@ async function separationOfResponsibilityBetweenFields(destination) {
 
     let translatedText = await translateAsync(sourceLanguageCodeCurrent, targetLanguageCodeCurrent, textToTranslate);
 
-    let programmingLanguage = localStorage.getItem('programmingLanguage');
+    let programmingLanguage = getProgrammingLanguage();
     let formattedTranslatedText = formatForProgrammingLanguage(programmingLanguage, typeOfFormatting, translatedText);
 
     if (translatedText !== null) {
