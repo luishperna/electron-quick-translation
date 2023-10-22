@@ -27,3 +27,18 @@ export function toPascalCase(text) {
 
     return formattedText;
 }
+
+export function toSnakeCase(text) {
+    let formattedText = text.toLowerCase();
+
+    if (formattedText.includes(" ")) {
+        let words = formattedText.split(" ");
+        formattedText = words[0];
+
+        for (let i = 1; i < words.length; i++) {
+            formattedText += "_" + words[i];
+        }
+    }
+
+    return formattedText;
+}
