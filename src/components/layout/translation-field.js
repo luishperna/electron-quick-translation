@@ -77,6 +77,7 @@ export function createTranslationField() {
     for (let i = 0; i < translationFields.length; i++) {
         let languageTitle = document.createElement('h3');
         languageTitle.setAttribute('id', `language-title-${i === 0 ? 'source' : 'target'}`);
+        languageTitle.style.marginBottom = '5px';
         languageTitle.style.fontSize = '12px';
         languageTitle.style.fontWeight = 'normal';
         languageTitle.style.letterSpacing = '1px';
@@ -88,6 +89,8 @@ export function createTranslationField() {
         let textInSelectedLanguage = document.createElement('textarea');
         textInSelectedLanguage.setAttribute('id', `text-in-selected-language-${i === 0 ? 'source' : 'target'}`);
         textInSelectedLanguage.style.width = '225px'
+        textInSelectedLanguage.style.height = '74px';
+        textInSelectedLanguage.style.marginBottom = '5px';
         textInSelectedLanguage.style.fontFamily = 'sans-serif';
         textInSelectedLanguage.style.fontSize = '16px';
         textInSelectedLanguage.style.fontWeight = 'normal';
