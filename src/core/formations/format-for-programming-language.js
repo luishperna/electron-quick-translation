@@ -1,3 +1,4 @@
+import { programmingLanguagesWithTemplates } from "./set-and-get-programming-languages.js";
 import { formatToCSharp } from "./programming-languages-templates/csharp.js";
 import { formatToJavaScript } from "./programming-languages-templates/javascript.js";
 import { formatToPython } from "./programming-languages-templates/python.js";
@@ -10,13 +11,13 @@ export function formatForProgrammingLanguage(programmingLanguage, typeOfFormatti
     let formattedText;
 
     switch (programmingLanguage) {
-        case "CSharp":
+        case programmingLanguagesWithTemplates[0]:
             formattedText = formatToCSharp(typeOfFormatting, text);
             break;
-        case "JavaScript":
+        case programmingLanguagesWithTemplates[1]:
             formattedText = formatToJavaScript(typeOfFormatting, text);
             break;
-        case "Python":
+        case programmingLanguagesWithTemplates[2]:
             formattedText = formatToPython(typeOfFormatting, text);
             break;
         default:
