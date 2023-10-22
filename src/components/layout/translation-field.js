@@ -1,6 +1,7 @@
 import { getLanguageNameByCode, getSourceLanguageCode, getTargetLanguageCode } from "../../core/languages/set-and-get-languages.js";
 import { createWarningMessage } from "./warning-message.js";
 import { translateAsync } from "../../core/translation/translate.js";
+import { formatForProgrammingLanguage } from "../../core/formations/format-for-programming-language.js";
 
 let sourceLanguageCode = getSourceLanguageCode();
 let targetLanguageCode = getTargetLanguageCode();
@@ -52,15 +53,22 @@ async function separationOfResponsibilityBetweenFields(destination) {
 
     translationResultField.value = '...';
 
-    let textToTranslate = textField.value;
+    let completeText = textField.value;
+
+    let typeOfFormatting = completeText[0] === "." && completeText[1] !== " " ? completeText.substring(0, 3) : null;
+    let textToTranslate = completeText[0] === "." && completeText[1] !== " " ? completeText.substring(3) : completeText;
+
     let translatedText = await translateAsync(sourceLanguageCodeCurrent, targetLanguageCodeCurrent, textToTranslate);
 
+    let programmingLanguage = localStorage.getItem('programmingLanguage');
+    let formattedTranslatedText = formatForProgrammingLanguage(programmingLanguage, typeOfFormatting, translatedText);
+
     if (translatedText !== null) {
-        navigator.clipboard.writeText(translatedText);
+        navigator.clipboard.writeText(formattedTranslatedText);
         createWarningMessage('Copied');
     }
 
-    translationResultField.value = translatedText;
+    translationResultField.value = formattedTranslatedText;
 }
 
 export function createTranslationField() {
