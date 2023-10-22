@@ -6,6 +6,9 @@ export function formatToJavaScript(typeOfFormatting, text) {
     let subtype = typeOfFormatting[2].toLowerCase();
 
     switch (type) {
+        case ".":
+            formattedText = toCamelCase(text);
+            break;
         case "c":
             formattedText = `class ${toPascalCase(text)} {\n\n}`;
             break;

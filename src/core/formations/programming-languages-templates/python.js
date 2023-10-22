@@ -6,6 +6,9 @@ export function formatToPython(typeOfFormatting, text) {
     let subtype = typeOfFormatting[2].toLowerCase();
 
     switch (type) {
+        case ".":
+            formattedText = toSnakeCase(text);
+            break;
         case "c":
             formattedText = `class ${toPascalCase(text)}:`;
             break;
