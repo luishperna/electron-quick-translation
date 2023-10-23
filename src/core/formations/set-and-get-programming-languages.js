@@ -1,3 +1,5 @@
+import { createWarningMessage } from "../../components/layout/warning-message.js";
+
 /**
  * Todas as linguagens de programação com modelo de formatação:
  * 
@@ -16,4 +18,5 @@ export function getProgrammingLanguage() {
 
 export function setProgrammingLanguage(programmingLanguage) {
     localStorage.setItem('programmingLanguage', programmingLanguage);
+    createWarningMessage("Saved");
 }

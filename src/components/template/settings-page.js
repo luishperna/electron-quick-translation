@@ -8,12 +8,16 @@ function createSettingsPage() {
 
     let selectProgrammingLanguage = createDivWithClass('fields-for-selection');
 
+    let warningMessageDiv = createDivWithClass('warning-message');
+
     // Adiciona o elemento criado na página
     settingsPage.appendChild(selectProgrammingLanguage);
+    settingsPage.appendChild(warningMessageDiv);
 }
 
 let listOfOptionsAndChangeFunctionsAllFields = [
     {
+        title: "Select programming language:",
         options: programmingLanguagesWithTemplates,
         changeFunction: setProgrammingLanguage,
         localStorageKey: "programmingLanguage",
