@@ -16,12 +16,14 @@ export function createCloseApplicationButton() {
 
         // Adiciona o efeito de hover ao passar o mouse
         closeApplicationIcon.addEventListener('mouseenter', function () {
+            closeApplicationIcon.style.transition = 'transform 0.5s ease';
             closeApplicationIcon.style.transform = 'scale(1.2)';
             closeApplicationIcon.style.cursor = 'pointer';
         });
 
         // Remove o efeito de hover quando o mouse sai
         closeApplicationIcon.addEventListener('mouseleave', function () {
+            closeApplicationIcon.style.transition = 'transform 0.5s ease';
             closeApplicationIcon.style.transform = 'scale(1)';
         });
 
