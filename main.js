@@ -1,4 +1,4 @@
-const { app, BrowserWindow, screen, globalShortcut, ipcMain } = require('electron')
+const { app, BrowserWindow, screen, globalShortcut, ipcMain, shell } = require('electron')
 
 let win = null;
 let minimizeAndMaximize = true;
@@ -101,4 +101,9 @@ ipcMain.on('closeApplication', () => {
     if (win) {
         win.close();
     }
+});
+
+// Configura um ouvinte para a mensagem de abrir link externo
+ipcMain.on('open-external-link', (event, url) => {
+    shell.openExternal(url);
 });

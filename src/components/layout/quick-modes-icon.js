@@ -1,47 +1,52 @@
 import { createInformationDialog } from "./information-dialog.js";
 const { ipcRenderer } = require('electron');
 
-let devMode = '';
+let contentInHTMLHelpMode =
+    `
+    HELP - Quick tips:
+    <hr>
+    • ENTER for translate;<br>
+    • CTRL + T minimize or maximize;<br>
+    • Overlay app on PIN ICON;<br>
+    • <strong>.</strong> (dot) enable dev mode.<br><br>
+    Find out more here <a id="external-link" href="https://github.com/luishperna/electron-quick-translation">documentation</a>.
+    `;
+
 let pinMode = '';
-let contentInHTMLDevMode = ``;
 let contentInHTMLPinMode = ``;
 
-updateInfoDialogDevMode();
 updateInfoDialogPinMode();
-
-function updateInfoDialogDevMode() {
-    devMode = localStorage.getItem('devMode');
-    contentInHTMLDevMode = `
-        Dev Mode: ${devMode}
-        <hr>
-        `;
-}
 
 function updateInfoDialogPinMode() {
     pinMode = localStorage.getItem('pinMode');
     contentInHTMLPinMode = `
         Pin Mode: ${pinMode}
         <hr>
+        Enable the mode to overlay the app.
         `;
 }
 
 function separationOfResponsibilityBetweenFields(quickMode) {
-    if (quickMode === 'dev') {
-        let devModeIcon = document.getElementById('quick-mode-icon-0');
+    switch (quickMode) {
+        case 'help':
+            createInformationDialog(contentInHTMLHelpMode);
 
-        devMode = devMode == 'Off' ? 'On' : 'Off';
-        localStorage.setItem('devMode', devMode);
+            document.getElementById('external-link').addEventListener('click', function (event) {
+                event.preventDefault();
+                ipcRenderer.send('open-external-link', this.href);
+            });
+            break;
+        case 'pin':
+            let pinModeIcon = document.getElementById('quick-mode-icon-1');
 
-        devModeIcon.style.opacity = devMode === 'On' ? 1 : 0.2;
-    }
-    else {
-        let pinModeIcon = document.getElementById('quick-mode-icon-1');
+            pinMode = pinMode == 'Off' ? 'On' : 'Off';
+            localStorage.setItem('pinMode', pinMode);
+            ipcRenderer.send('minimizeAndMaximizeMode', pinMode);
 
-        pinMode = pinMode == 'Off' ? 'On' : 'Off';
-        localStorage.setItem('pinMode', pinMode);
-        ipcRenderer.send('minimizeAndMaximizeMode', pinMode);
-
-        pinModeIcon.style.opacity = pinMode === 'Off' ? 0.2 : 1;
+            pinModeIcon.style.opacity = pinMode === 'Off' ? 0.2 : 1;
+            break;
+        default:
+            break;
     }
 }
 
@@ -49,18 +54,16 @@ export function createQuickModesIcon() {
     let quickModes = document.getElementsByClassName('quick-mode-icon');
 
     for (let i = 0; i < quickModes.length; i++) {
-        let currentMode = i === 0 ? 'dev' : 'pin';
+        let currentMode = i === 0 ? 'help' : 'pin';
 
         let quickMode = document.createElement('img');
         quickMode.setAttribute('id', `quick-mode-icon-${i}`);
-        quickMode.src = i === 0 ? '../assets/img/icons/dev.png' : '../assets/img/icons/pin.png';
+        quickMode.src = i === 0 ? '../assets/img/icons/help.png' : '../assets/img/icons/pin.png';
         quickMode.style.width = '18px';
         quickMode.style.height = '18px';
 
-        if (currentMode === 'dev') {
-            quickMode.style.opacity = devMode === 'On' ? 1 : 0.2;
-        } else {
-            quickMode.style.opacity = pinMode === 'Off' ? 0.2 : 1;
+        if (currentMode === 'pin') {
+            quickMode.style.opacity = pinMode === 'On' ? 1 : 0.2;
         }
 
         quickMode.addEventListener('click', function () {
@@ -71,12 +74,16 @@ export function createQuickModesIcon() {
             event.preventDefault();
             let contentInHTML = '';
 
-            if (currentMode === 'dev') {
-                updateInfoDialogDevMode();
-                contentInHTML = contentInHTMLDevMode;
-            } else {
-                updateInfoDialogPinMode();
-                contentInHTML = contentInHTMLPinMode;
+            switch (currentMode) {
+                case 'help':
+                    contentInHTML = contentInHTMLHelpMode;
+                    break;
+                case 'pin':
+                    updateInfoDialogPinMode();
+                    contentInHTML = contentInHTMLPinMode;
+                    break;
+                default:
+                    break;
             }
 
             createInformationDialog(contentInHTML);
