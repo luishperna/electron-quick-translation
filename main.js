@@ -8,7 +8,7 @@ const createWindow = (width, height) => {
     win = new BrowserWindow({
         width: 250,
         height: 350,
-        icon: __dirname + '/src/assets/img/icons/icon.png',
+        icon: __dirname + '/src/assets/img/icons/icon.ico',
         resizable: false,
         alwaysOnTop: true,
         x: width - 255, // Subtrai a largura da janela da largura da tela

@@ -16,5 +16,13 @@
   "devDependencies": {
     "electron": "^25.5.0",
     "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "directories": {
+      "output": "build"
+    },
+    "win": {
+      "icon": "src/assets/img/icons/icon.ico"
+    }
   }
 }
