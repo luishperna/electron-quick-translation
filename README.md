@@ -20,6 +20,7 @@ Desenvolvido para facilitar o aprendizado de novos idiomas para qualquer pessoa 
 
 - **Praticidade na tradução**: sempre à disposição durante suas tarefas com um simple clique ou atalho;
 - **Interface intuitiva**: fácil de usar para usuários de todos os níveis;
+- **Sobreposição**: praticidade na utilização com a possibilidade de fixar na frente de outros aplicativos;
 - **Área de transferência automática**: cópia da tradução salva automaticamente na área de transferência para utilização em outros aplicativos;
 - **Modo DEV**: tradução de nomes de variaveis, métodos, classes e muito mais com formatação para a sintaxe de uma linguagem de programação, simplificando a codificação.
 
@@ -38,6 +39,7 @@ Para instalar o aplicativo em sua computador siga estas etapas:
 Para usar o aplicativo siga as seguintes etapas:
 
 1. Clique no ícone de expandir ou use o atalho `Ctrl` + `T` para maximizar o aplicativo, se estiver minimizado.
+   - É possivel deixá-lo sempre maximizado clicando no ícone de alfinete.
 2. Escolha os idiomas de origem e destino para a tradução.
 3. Digite o texto que você deseja traduzir no campo apropriado.
    - É possivel inverter a tradução digitando o texto no campo do idioma de destino.
