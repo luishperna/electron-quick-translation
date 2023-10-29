@@ -53,10 +53,11 @@ Pronto! O texto traduzido será copiado automaticamente para sua área de transf
 ## :keyboard: Atalhos
 
 Teclas         | Evento
-:------------: | :------:
+:------------: | :------------:
+`Tab`          | Navega entre os campos e botões do aplicativo
+`Enter`        | Nos campos de texto realiza a tradução e nos demais campos realiza a ação de clique
 `Ctrl` + `T`   | Maximiza ou minimiza o aplicativo
 `Alt` + `Tab`  | Navega entre aplicativos (retorna ao ponto anterior do cursor após a tradução)
-
 
 ---
 
