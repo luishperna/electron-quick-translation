@@ -6,8 +6,10 @@ export function setUserPreferences() {
 
     if (!(pinMode && sourceLanguageCode && targetLanguageCode && programmingLanguage)) {
         localStorage.setItem('pinMode', 'Off');
-        localStorage.setItem('sourceLanguageCode', 'en-CA');
-        localStorage.setItem('targetLanguageCode', 'pt-BR');
+        localStorage.setItem('sourceLanguageCode', 'pt-BR');
+        localStorage.setItem('targetLanguageCode', 'en-CA');
         localStorage.setItem('programmingLanguage', 'CSharp');
+
+        location.reload();
     }
 }
