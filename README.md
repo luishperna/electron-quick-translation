@@ -27,7 +27,7 @@ Desenvolvido para facilitar o aprendizado de novos idiomas para qualquer pessoa 
 
 ## :arrow_down: Como instalar
 
-Para instalar o aplicativo em sua computador, siga estas etapas:
+Para instalar o aplicativo em sua computador siga estas etapas:
 
 1. ...
 
@@ -35,7 +35,16 @@ Para instalar o aplicativo em sua computador, siga estas etapas:
 
 ## :computer: Como usar
 
-(Em desenvolvimento)
+Para usar o aplicativo siga as seguintes etapas:
+
+1. Clique no ícone de expandir ou use o atalho `Ctrl` + `T` para maximizar o aplicativo, se estiver minimizado.
+2. Escolha os idiomas de origem e destino para a tradução.
+3. Digite o texto que você deseja traduzir no campo apropriado.
+   - É possivel inverter a tradução digitando o texto no campo do idioma de destino.
+   - Se desejar usar o modo DEV, clique no ícone de engrenagem e, em seguida, selecionar o destino da formatação entre as linguagens de programação disponíveis.
+4. Após digitar o texto, pressione a tecla `Enter`.
+                                                                                              
+Pronto! O texto traduzido será copiado automaticamente para sua área de transferência. Agora você pode colar onde desejar.
 
 ---
 
@@ -68,7 +77,7 @@ public string GetAllUsers()
 
 _**Observação**: após o tipo de formatação é necessário dar um espaço para digitar o texto._
 
-### Listas com os tipos de formatações:
+### :clipboard: Listas com os tipos de formatações:
 
 #### CSharp
 Tipo de formatação       | Sintaxe de saída                           | Exemplo de saída _(EN-CA)_
