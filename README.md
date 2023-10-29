@@ -51,7 +51,69 @@ Teclas         | Evento
 
 ## Modo DEV
 
-(Em desenvolvimento)
+Habilite o modo DEV digitando `.` (ponto) antes do texto para traduzir e o tipo de formatação como mostra no exemplo a seguir:
+
+_Entrada ➔ PT-BR (CSharp)_
+```
+.ms obter todos os usuários 
+```
+
+_Saída ➔ EN-CA (CSharp)_
+```
+public string GetAllUsers()
+{
+	return ;
+}
+```
+
+_**Observação**: após o tipo de formatação é necessário dar um espaço para digitar o texto._
+
+### Listas com os tipos de formatações:
+
+#### CSharp
+Tipo de formatação       | Sintaxe de saída                           | Exemplo de saída _(EN-CA)_
+:----------------------: | :----------------------------------------- | :----------------------  
+`..`                     | Apenas o texto na sintaxe de uma variável  | ```translatedText```
+`.c`                     | Classe (público)                           | ```public class TranslatedText {  }```
+`.e`                     | Enumeração (público)                       | ```public enum TranslatedText {  }```
+`.i`                     | Interface (público)                        | ```public interface ITranslatedText {  }```
+`.m` ou `.mv`            | Método do tipo void (público)              | ```public void TranslatedText() { return ; }```
+`.mb`                    | Método do tipo bool (público)              | ```public bool TranslatedText() { return ; }```
+`.mc`                    | Método do tipo char (público)              | ```public char TranslatedText() { return ; }```
+`.md`                    | Método do tipo double (público)            | ```public double TranslatedText() { return ; }```
+`.mf`                    | Método do tipo float (público)             | ```public float TranslatedText() { return ; }```
+`.mi`                    | Método do tipo int (público)               | ```public int TranslatedText() { return ; }```
+`.ms`                    | Método do tipo string (público)            | ```public tipo TranslatedText() { return ; }```
+`.p` ou `.ps`            | Propriedade do tipo string                 | ```public string TranslatedText { get; set; }```
+`.pb`                    | Propriedade do tipo bool                   | ```public bool TranslatedText { get; set; }```
+`.pc`                    | Propriedade do tipo char                   | ```public char TranslatedText { get; set; }```
+`.pd`                    | Propriedade do tipo double                 | ```public double TranslatedText { get; set; }```
+`.pf`                    | Propriedade do tipo float                  | ```public float TranslatedText { get; set; }```
+`.pi`                    | Propriedade do tipo int                    | ```public int TranslatedText { get; set; }```
+`.v` ou `.vs`            | Variável do tipo string                    | ```string translatedText = ;```
+`.vb`                    | Variável do tipo bool                      | ```bool translatedText = ;```
+`.vc`                    | Variável do tipo char                      | ```char translatedText = ;```
+`.vd`                    | Variável do tipo double                    | ```double translatedText = ;```
+`.vf`                    | Variável do tipo float                     | ```float translatedText = ;```
+`.vi`                    | Variável do tipo int                       | ```int translatedText = ;```
+
+#### JavaScript
+Tipo de formatação       | Sintaxe de saída                           | Exemplo de saída _(EN-CA)_
+:----------------------: | :----------------------------------------- | :----------------------
+`..`                     | Apenas o texto na sintaxe de uma variável  | ```translatedText```
+`.c`                     | Classe                                     | ```class TranslatedText {  }```
+`.f`                     | Método sem retorno                         | ```function translatedText() {  }```
+`.f(qualquer_caractere)` | Método com retorno                         | ```function translatedText() { return ; }```
+`.v`                     | Variável                                   | ```var translatedText = ;```
+
+#### Python
+Tipo de formatação       | Sintaxe de saída                           | Exemplo de saída _(EN-CA)_
+:----------------------: | :----------------------------------------- | :----------------------
+`..`                     | Apenas o texto na sintaxe de uma variável  | ```translated_text```
+`.c`                     | Classe                                     | ```class TranslatedText:```
+`.f`                     | Método sem retorno                         | ```def translated_text():```
+`.f(qualquer_caractere)` | Método com retorno                         | ```def translated_text(): return```
+`.v`                     | Variável                                   | ```translated_text =```
 
 ---
 
