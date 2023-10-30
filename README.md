@@ -112,11 +112,11 @@ Tipo de formatação       | Sintaxe de saída                           | Exemp
 #### JavaScript
 Tipo de formatação       | Sintaxe de saída                           | Exemplo de saída _(EN-CA)_
 :----------------------: | :----------------------------------------- | :----------------------
-`..`                     | Apenas o texto na sintaxe de uma variável  | ```translatedText`
-`.c`                     | Classe                                     | ```class TranslatedText {  }`
-`.f`                     | Método sem retorno                         | ```function translatedText() {  }`
-`.f(qualquer_caractere)` | Método com retorno                         | ```function translatedText() { return ; }`
-`.v`                     | Variável                                   | ```var translatedText = ;`
+`..`                     | Apenas o texto na sintaxe de uma variável  | `translatedText`
+`.c`                     | Classe                                     | `class TranslatedText {  }`
+`.f`                     | Método sem retorno                         | `function translatedText() {  }`
+`.f(qualquer_caractere)` | Método com retorno                         | `function translatedText() { return ; }`
+`.v`                     | Variável                                   | `var translatedText = ;`
 
 #### Python
 Tipo de formatação       | Sintaxe de saída                           | Exemplo de saída _(EN-CA)_
