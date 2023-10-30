@@ -24,7 +24,7 @@
     },
     "win": {
       "icon": "src/assets/img/icons/icon.ico",
-      "artifactName": "${productName} for Windows Setup ${version}.${ext}"
+      "artifactName": "QuickTranslation0.8.0-Windows-Setup-${version}.${ext}"
     }
   }
 }
