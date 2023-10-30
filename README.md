@@ -1,7 +1,7 @@
 <h1 align="center">Quick Translation</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/v.X.X.X | beta-dcdcdc?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/v.0.8.0 | beta.1-dcdcdc?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
   <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
@@ -28,7 +28,7 @@ Desenvolvido para facilitar o aprendizado de novos idiomas para qualquer pessoa 
 
 ## :arrow_down: Como instalar
 
-Para instalar o aplicativo em sua computador siga estas etapas:
+Para instalar o aplicativo em sua computador siga as seguintes instruções:
 
 1. ...
 
@@ -139,6 +139,14 @@ Tipo de formatação       | Sintaxe de saída                           | Exemp
 ## :hammer_and_wrench: Tecnologias utilizadas
 
 - `HTML` `CSS` `JavaScript` `Electron`
+
+---
+
+## Licença
+
+[**MIT License**](./LICENSE)
+
+Copyright (c) 2023 Luís Henrique Perna
 
 ---
 
