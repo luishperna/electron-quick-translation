@@ -4,11 +4,11 @@
   "description": "Translation application",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "dev": "electron .",
     "build-win": "electron-builder --win"
   },
   "author": {
-    "name": "Luís Perna",
+    "name": "Luís Henrique Perna",
     "email": "luishperna@gmail.com",
     "url": "https://luishperna.com.br"
   },
@@ -18,6 +18,7 @@
     "electron-builder": "^24.6.4"
   },
   "build": {
+    "productName": "Quick Translation 0.8.0",
     "directories": {
       "output": "build"
     },
