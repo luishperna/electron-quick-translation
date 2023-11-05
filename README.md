@@ -1,7 +1,7 @@
 <h1 align="center">Quick Translation</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/v.0.8.0 | beta.1-dcdcdc?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/v.0.8.2 | beta.1-dcdcdc?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
   <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
