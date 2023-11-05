@@ -28,11 +28,16 @@ Desenvolvido para facilitar o aprendizado de novos idiomas para qualquer pessoa 
 
 ## :arrow_down: Como instalar
 
-Para instalar o aplicativo em sua computador siga as seguintes instruções:
+Para instalar o aplicativo em seu computador siga as seguintes instruções:
 
-1. ...
+1. No lado direito, dentro da seção **Releases**, clique na versão mais recente disponível (atualmente **v0.8.0-beta.1**).
+   - Para instalar versões anteriores clique em **Releases** e selecione a versão que desejar.
+2. Clique no arquivo executável (**.exe**) para baixá-lo.
+3. Após baixado, navegue até o diretório onde o arquivo foi salvo (geralmente no diretório Downloads) e clique duas vezes sobre o arquivo.
+4. O aplicativo será instalado automaticamente e, após a conclusão, será aberto.
+   - Caso o Windows mostre uma mensagem de proteção, clique em **More info** e, em seguida, clique em **Run anyway** para permitir a execução do aplicativo.
 
-(Em desenvolvimento)
+_**Observação**: alguns textos podem variar dependendo do idioma configurado em seu computador._
 
 ## :computer: Como usar
 
