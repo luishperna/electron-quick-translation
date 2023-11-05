@@ -8,6 +8,10 @@
   <img src="https://img.shields.io/static/v1?style=for-the-badge&message=Electron&color=47848F&logo=Electron&logoColor=FFFFFF&label="/>
 </p>
 
+<p align="center">
+  <img src="./src/assets/img/logo/animated-logo.gif" alt="Logo com animação" />
+</p>
+
 ## :dart: Objetivo
 
 O **Quick Translation** redefine a experiência de tradução de texto, tornando-a prática e rápida. 
@@ -77,7 +81,7 @@ _Entrada ➔ PT-BR (CSharp)_
 ```
 
 _Saída ➔ EN-CA (CSharp)_
-```
+```cs
 public string GetAllUsers()
 {
 	return ;
