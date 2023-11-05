@@ -1,3 +1,9 @@
+function removeSpecialCharacters(text, noRemove = '') {
+    const regex = new RegExp(`[^a-zA-Z0-9${noRemove}]`, 'g');
+    // Separa os caracteres especiais de acentos e substitui 
+    return text.normalize('NFD').replace(regex, "");
+}
+
 export function toCamelCase(text) {
     let formattedText = text.toLowerCase();
 
@@ -10,7 +16,7 @@ export function toCamelCase(text) {
         }
     }
 
-    return formattedText;
+    return removeSpecialCharacters(formattedText);
 }
 
 export function toPascalCase(text) {
@@ -25,20 +31,21 @@ export function toPascalCase(text) {
         }
     }
 
-    return formattedText;
+    return removeSpecialCharacters(formattedText);
 }
 
 export function toSnakeCase(text) {
     let formattedText = text.toLowerCase();
+    const separationSpecialCharacter = '_';
 
     if (formattedText.includes(" ")) {
         let words = formattedText.split(" ");
         formattedText = words[0];
 
         for (let i = 1; i < words.length; i++) {
-            formattedText += "_" + words[i];
+            formattedText += separationSpecialCharacter + words[i];
         }
     }
 
-    return formattedText;
+    return removeSpecialCharacters(formattedText, separationSpecialCharacter);
 }
