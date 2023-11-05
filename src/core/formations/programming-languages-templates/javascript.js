@@ -13,7 +13,7 @@ export function formatToJavaScript(typeOfFormatting, text) {
             formattedText = `class ${toPascalCase(text)} {\n\n}`;
             break;
         case "f":
-            formattedText = `function ${toCamelCase(text)}() {\n${subtype === " " ? "\n\n" : "\treturn ;\n"}}`;
+            formattedText = `function ${toCamelCase(text)}() {\n${subtype === " " ? "\n" : "\treturn ;\n"}}`;
             break;
         case "v":
             formattedText = `var ${toCamelCase(text)} = ;`;
