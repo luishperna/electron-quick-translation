@@ -12,6 +12,24 @@
   <img src="./src/assets/img/logo/animated-logo.gif" alt="Logo com animação" />
 </p>
 
+## Sumário
+
+- [:dart: Objetivo](#dart-objetivo)
+- [:rocket: Principais recursos](#rocket-principais-recursos)
+- [:arrow_down: Como instalar](#arrow_down-como-instalar)
+- [:computer: Como usar](#computer-como-usar)
+- [:keyboard: Atalhos](#keyboard-atalhos)
+
+- [:man_technologist: Modo DEV](#man_technologist-modo-dev)
+   - [:clipboard: Listas com os tipos de formatações](#clipboard-listas-com-os-tipos-de-formatações)
+      - [CSharp](#csharp)
+      - [JavaScript](#javascript)
+      - [Python](#python)
+- [:wrench: Pré-requisitos](#wrench-pré-requisitos)
+- [:hammer_and_wrench: Tecnologias utilizadas](#hammer_and_wrench-tecnologias-utilizadas)
+- [Licença](#licença)
+- [Autor](#autor)
+
 ## :dart: Objetivo
 
 O **Quick Translation** redefine a experiência de tradução de texto, tornando-a prática e rápida. 
