@@ -27,6 +27,7 @@
       - [JavaScript](#javascript)
       - [Python](#python)
 - [:wrench: Pré-requisitos](#wrench-pré-requisitos)
+- [:gear: Como executar o projeto](#gear-como-executar-o-projeto)
 - [:hammer_and_wrench: Tecnologias utilizadas](#hammer_and_wrench-tecnologias-utilizadas)
 - [:scroll: Licença](#scroll-licença)
 - [:pencil: Autor](#pencil-autor)
