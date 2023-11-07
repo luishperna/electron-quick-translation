@@ -146,9 +146,30 @@ Tipo de formatação       | Sintaxe de saída                           | Exemp
 
 ---
 
+## :gear: Como executar o projeto
+
+Execute o **Quick Translation** em sua máquina local com os seguintes passos:
+
+1. Instale o **Node.js** em sua máquina.
+   - Disponível em: https://nodejs.org/en.
+2. Clone o projeto para o diretório que desejar executando o seguinte comando via terminal:
+```
+git clone https://github.com/luishperna/electron-quick-translation.git
+```
+3. Instale as dependências do projeto usando o comando: 
+```
+npm install
+```
+4. Execute o projeto com o comando abaixo:
+```
+npm run dev
+```
+
+O projeto será executado e estará pronto para realizar testes e/ou receber alterações em seu código-fonte.
+
 ## :hammer_and_wrench: Tecnologias utilizadas
 
-- `HTML` `CSS` `JavaScript` `Electron`
+- `HTML` `CSS` `JavaScript` `Electron` `Electron-builder` `MyMemory`
 
 ---
 
