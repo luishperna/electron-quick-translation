@@ -11,14 +11,14 @@ const createWindow = (width, height) => {
         icon: __dirname + '/src/assets/img/icons/icon.ico',
         resizable: false,
         alwaysOnTop: true,
-        x: width - 255, // Subtrai a largura da janela da largura da tela
-        y: height - 355, // Subtrai a altura da janela da altura da tela
-        backgroundColor: '#2d2d2d', // Cor de fundo com transparência
-        opacity: 0.76, // Define a opacidade da janela
-        frame: false, // Removendo a barra superior
+        x: width - 255, // Largura da tela - ( largura do aplicativo + 5 de espaçamento )
+        y: height - 355, // Altura da tela - ( altura do aplicativo + 5 de espaçamento )
+        backgroundColor: '#2d2d2d',
+        opacity: 0.76,
+        frame: false, // Removendo barra superior da página
         webPreferences: {
             transparent: true,
-            // Permitindo integrando do node no front-end
+            // Permitindo integração do node no front-end
             nodeIntegration: true,
             contextIsolation: false,
             enableRemoteModule: true,
@@ -37,7 +37,7 @@ const createWindow = (width, height) => {
 
     win.loadFile('src/views/index.html')
 
-    // Detectar quando a janela perde o foco (quando o usuário clica fora dela)
+    // Detectando quando a janela perde o foco (quando o usuário clica fora dela)
     win.on('blur', () => {
         if (!pinModeState) {
             win.resizable = true;
@@ -50,7 +50,7 @@ const createWindow = (width, height) => {
         }
     });
 
-    // Detectar quando a janela ganha o foco novamente
+    // Detectando quando a janela ganha o foco novamente
     win.on('focus', () => {
         if (!pinModeState) {
             win.resizable = true;
@@ -63,9 +63,9 @@ const createWindow = (width, height) => {
         }
     });
 
-    // Registrar o atalho global Ctrl + T
+    // Registrando o atalho global Ctrl + T
     globalShortcut.register('CommandOrControl+T', () => {
-        // Quando o atalho for acionado, trazer a janela para frente
+        // Maximizando a janela quando o atalho for acionado
         if (win) {
             if (windowState === 'maximized') {
                 win.blur();
@@ -75,9 +75,9 @@ const createWindow = (width, height) => {
         }
     });
 
-    // Fechar o aplicativo quando a janela for fechada
+    // Encerrando o aplicativo quando a janela for fechada
     win.on('closed', () => {
-        // Desregistrar o atalho global antes de sair
+        // Cancelando registro do atalho global Ctrl + T
         globalShortcut.unregisterAll();
         win = null;
     });
@@ -88,19 +88,19 @@ app.whenReady().then(() => {
     createWindow(width, height)
 })
 
-// Configura um ouvinte para a mensagem 'pinModeStatus'
+// Configurando um ouvinte para a mensagem de estado do modo pin
 ipcMain.on('pinModeState', (event, pinMode) => {
     pinModeState = pinMode === 'On' ? true : false;
 });
 
-// Configura um ouvinte para a mensagem de fechar o aplicativo
+// Configurando um ouvinte para a mensagem de fechar o aplicativo
 ipcMain.on('closeApplication', () => {
     if (win) {
         win.close();
     }
 });
 
-// Configura um ouvinte para a mensagem de abrir link externo
+// Configurando um ouvinte para a mensagem de abrir link externo
 ipcMain.on('open-external-link', (event, url) => {
     shell.openExternal(url);
 });

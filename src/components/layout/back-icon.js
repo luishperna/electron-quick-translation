@@ -13,14 +13,14 @@ export function createBackButton() {
             window.location.href = "../views/index.html";
         });
 
-        // Adiciona o efeito de hover ao passar o mouse
+        // Adicionando efeito de hover ao passar o mouse
         backIcon.addEventListener('mouseenter', function () {
             backIcon.style.transition = 'transform 0.5s ease';
             backIcon.style.transform = 'scale(1.2)';
             backIcon.style.cursor = 'pointer';
         });
 
-        // Remove o efeito de hover quando o mouse sai
+        // Removendo efeito de hover quando o mouse sai
         backIcon.addEventListener('mouseleave', function () {
             backIcon.style.transition = 'transform 0.5s ease';
             backIcon.style.transform = 'scale(1)';

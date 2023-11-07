@@ -32,19 +32,19 @@ export function createSelectionFields(listOfOptionsAndChangeFunctionsAllFields) 
         selectionField.style.opacity = 0.7;
         selectionField.style.textAlign = 'center';
 
-        // Adiciona função ao alterar a opção do campo de seleção
+        // Executando a função ao alterar a opção do campo de seleção
         selectionField.addEventListener('change', () => {
             let selectedValue = selectionField.value;
             listOfOptionsAndChangeFunctionsAllFields[i].changeFunction(selectedValue);
         });
 
-        // Adiciona opções ao campo de seleção
+        // Adicionando opções ao campo de seleção
         for (let j = 0; j < listOfOptionsAndChangeFunctionsAllFields[i].options.length; j++) {
             let option = new Option(listOfOptionsAndChangeFunctionsAllFields[i].options[j]);
             selectionField.add(option);
         }
 
-        // Define a opção já armazenada como padrão no campo de seleção
+        // Definindo a opção já armazenada como padrão no campo de seleção
         selectionField.value = localStorage.getItem(listOfOptionsAndChangeFunctionsAllFields[i].localStorageKey);
 
         fieldsForSelection[0].appendChild(fieldTitle);

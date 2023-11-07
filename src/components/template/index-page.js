@@ -12,7 +12,7 @@ import { createSettingsButton  } from "../layout/settings-icon.js";
 
 const numberOfModes = 2;
 
-// Cria as divs para seus respectivos componentes da página
+// Criando as divs para seus respectivos componentes da página
 function createIndexPage() {
     let indexPage = document.getElementById('index-page');
 
@@ -48,7 +48,7 @@ function createIndexPage() {
 
     let warningMessageDiv = createDivWithClass('warning-message');
 
-    // Adiciona os elementos criados na página
+    // Adicionando os elementos criados na página
     indexPage.appendChild(quickIconsDiv);
     indexPage.appendChild(upperTranslationFieldDiv);
     indexPage.appendChild(separationLineDiv);

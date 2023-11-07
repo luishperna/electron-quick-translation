@@ -13,7 +13,7 @@ function createSettingsPage() {
 
     let warningMessageDiv = createDivWithClass('warning-message');
 
-    // Adiciona o elemento criado na página
+    // Adicionando os elementos criados na página
     settingsPage.appendChild(selectProgrammingLanguage);
     settingsPage.appendChild(backIconDiv);
     settingsPage.appendChild(warningMessageDiv);

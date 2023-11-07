@@ -90,14 +90,14 @@ export function createQuickModesIcon() {
             createInformationDialog(contentInHTML);
         });
 
-        // Adiciona o efeito de hover ao passar o mouse
+        // Adicionando efeito de hover ao passar o mouse
         quickMode.addEventListener('mouseenter', function () {
             quickMode.style.transition = 'transform 0.5s ease';
             quickMode.style.transform = 'scale(1.2)';
             quickMode.style.cursor = 'pointer';
         });
 
-        // Remove o efeito de hover quando o mouse sai
+        // Removendo o efeito de hover quando o mouse sai
         quickMode.addEventListener('mouseleave', function () {
             quickMode.style.transition = 'transform 0.5s ease';
             quickMode.style.transform = 'scale(1)';

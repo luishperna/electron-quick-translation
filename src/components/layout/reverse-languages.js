@@ -11,7 +11,7 @@ export function createReverseLanguages() {
         buttonReverseLanguages.style.background = 'transparent';
         buttonReverseLanguages.style.border = 'none';
         buttonReverseLanguages.style.backgroundImage = 'url(../assets/img/icons/reverse.png)';
-        buttonReverseLanguages.style.backgroundSize = 'cover'; // Ajusta o tamanho da imagem para cobrir o botão completamente
+        buttonReverseLanguages.style.backgroundSize = 'cover'; // Ajustando o tamanho da imagem para cobrir o botão completamente
 
         buttonReverseLanguages.addEventListener('click', reserveLanguages);
 

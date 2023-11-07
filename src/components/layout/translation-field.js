@@ -109,7 +109,7 @@ export function createTranslationField() {
         // Adicionando funcionalidade de tradução ao clicar no Enter
         textInSelectedLanguage.addEventListener('keydown', async function (event) {
             if (event.key === 'Enter') {
-                event.preventDefault(); // Impede que o caractere de nova linha seja inserido
+                event.preventDefault(); // Impedindo que o caractere de nova linha seja inserido
                 let destination = i === 0 ? 'source' : 'target';
                 await separationOfResponsibilityBetweenFields(destination);
             }

@@ -10,20 +10,20 @@ export function createCloseApplicationButton() {
         closeApplicationIcon.style.width = '18px';
         closeApplicationIcon.style.height = '18px';
 
-        // Adiciona o evento para fechar o aplicativo
+        // Adicionando evento para fechar o aplicativo
         closeApplicationIcon.addEventListener('click', function () {
             setPinModeState('Off');
             ipcRenderer.send('closeApplication');
         });
 
-        // Adiciona o efeito de hover ao passar o mouse
+        // Adicionando efeito de hover ao passar o mouse
         closeApplicationIcon.addEventListener('mouseenter', function () {
             closeApplicationIcon.style.transition = 'transform 0.5s ease';
             closeApplicationIcon.style.transform = 'scale(1.2)';
             closeApplicationIcon.style.cursor = 'pointer';
         });
 
-        // Remove o efeito de hover quando o mouse sai
+        // Removendo efeito de hover quando o mouse sai
         closeApplicationIcon.addEventListener('mouseleave', function () {
             closeApplicationIcon.style.transition = 'transform 0.5s ease';
             closeApplicationIcon.style.transform = 'scale(1)';

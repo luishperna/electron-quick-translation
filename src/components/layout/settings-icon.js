@@ -14,14 +14,14 @@ export function createSettingsButton() {
             window.location.href = "../views/settings.html";
         });
 
-        // Adiciona o efeito de hover ao passar o mouse
+        // Adicionando efeito de hover ao passar o mouse
         settingsIcon.addEventListener('mouseenter', function () {
             settingsIcon.style.transition = 'transform 0.5s ease';
             settingsIcon.style.transform = 'scale(1.2)';
             settingsIcon.style.cursor = 'pointer';
         });
 
-        // Remove o efeito de hover quando o mouse sai
+        // Removendo o efeito de hover quando o mouse sai
         settingsIcon.addEventListener('mouseleave', function () {
             settingsIcon.style.transition = 'transform 0.5s ease';
             settingsIcon.style.transform = 'scale(1)';
