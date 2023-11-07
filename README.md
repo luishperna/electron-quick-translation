@@ -12,6 +12,8 @@
   <img src="./src/assets/img/logo/animated-logo.gif" alt="Logo com animação" />
 </p>
 
+---
+
 ## Sumário
 
 - [:dart: Objetivo](#dart-objetivo)
@@ -19,7 +21,6 @@
 - [:arrow_down: Como instalar](#arrow_down-como-instalar)
 - [:computer: Como usar](#computer-como-usar)
 - [:keyboard: Atalhos](#keyboard-atalhos)
-
 - [:man_technologist: Modo DEV](#man_technologist-modo-dev)
    - [:clipboard: Listas com os tipos de formatações](#clipboard-listas-com-os-tipos-de-formatações)
       - [CSharp](#csharp)
@@ -27,8 +28,10 @@
       - [Python](#python)
 - [:wrench: Pré-requisitos](#wrench-pré-requisitos)
 - [:hammer_and_wrench: Tecnologias utilizadas](#hammer_and_wrench-tecnologias-utilizadas)
-- [Licença](#licença)
-- [Autor](#autor)
+- [:scroll: Licença](#scroll-licença)
+- [:pencil: Autor](#pencil-autor)
+ 
+---
 
 ## :dart: Objetivo
 
@@ -191,7 +194,7 @@ O projeto será executado e estará pronto para realizar testes e/ou receber alt
 
 ---
 
-## Licença
+## :scroll: Licença
 
 [**MIT License**](./LICENSE)
 
@@ -199,7 +202,7 @@ Copyright (c) 2023 Luís Henrique Perna
 
 ---
 
-## Autor
+## :pencil: Autor
 
 | [<img src="https://avatars.githubusercontent.com/u/96630233?s=400&u=3400cfe6ba8fb87692f4f14cbdbef3e5cc996b67&v=4" width=115><br><sub>Luís Henrique Perna</sub>](https://github.com/luishperna) |
 | :---: |
