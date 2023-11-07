@@ -1,7 +1,7 @@
 const { app, BrowserWindow, screen, globalShortcut, ipcMain, shell } = require('electron')
 
 let win = null;
-let minimizeAndMaximize = true;
+let pinModeState = false;
 let windowState = 'maximized';
 
 const createWindow = (width, height) => {
@@ -39,7 +39,7 @@ const createWindow = (width, height) => {
 
     // Detectar quando a janela perde o foco (quando o usuário clica fora dela)
     win.on('blur', () => {
-        if (minimizeAndMaximize) {
+        if (!pinModeState) {
             win.resizable = true;
             win.setOpacity(0.2)
             win.loadFile('src/views/minimize.html');
@@ -52,7 +52,7 @@ const createWindow = (width, height) => {
 
     // Detectar quando a janela ganha o foco novamente
     win.on('focus', () => {
-        if (minimizeAndMaximize) {
+        if (!pinModeState) {
             win.resizable = true;
             win.setOpacity(0.76)
             win.loadFile('src/views/index.html');
@@ -88,13 +88,9 @@ app.whenReady().then(() => {
     createWindow(width, height)
 })
 
-// Configura um ouvinte para a mensagem 'toggleMinimizeOnBlur'
-ipcMain.on('minimizeAndMaximizeMode', (event, pinMode) => {
-    if (pinMode === 'On') {
-        minimizeAndMaximize = false;
-    } else {
-        minimizeAndMaximize = true;
-    }
+// Configura um ouvinte para a mensagem 'pinModeStatus'
+ipcMain.on('pinModeState', (event, pinMode) => {
+    pinModeState = pinMode === 'On' ? true : false;
 });
 
 // Configura um ouvinte para a mensagem de fechar o aplicativo

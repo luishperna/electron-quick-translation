@@ -1,3 +1,4 @@
+import { setPinModeState } from "../../core/preferences/pin-mode/set-and-get-pin-mode.js";
 const { ipcRenderer } = require('electron');
 
 export function createCloseApplicationButton() {
@@ -11,6 +12,7 @@ export function createCloseApplicationButton() {
 
         // Adiciona o evento para fechar o aplicativo
         closeApplicationIcon.addEventListener('click', function () {
+            setPinModeState('Off');
             ipcRenderer.send('closeApplication');
         });
 

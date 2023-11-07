@@ -1,4 +1,5 @@
 import { createInformationDialog } from "./information-dialog.js";
+import { getPinModeState, setPinModeState } from "../../core/preferences/pin-mode/set-and-get-pin-mode.js";
 const { ipcRenderer } = require('electron');
 
 let contentInHTMLHelpMode =
@@ -18,7 +19,7 @@ let contentInHTMLPinMode = ``;
 updateInfoDialogPinMode();
 
 function updateInfoDialogPinMode() {
-    pinMode = localStorage.getItem('pinMode');
+    pinMode = getPinModeState();
     contentInHTMLPinMode = `
         Pin Mode: ${pinMode}
         <hr>
@@ -40,8 +41,8 @@ function separationOfResponsibilityBetweenFields(quickMode) {
             let pinModeIcon = document.getElementById('quick-mode-icon-1');
 
             pinMode = pinMode == 'Off' ? 'On' : 'Off';
-            localStorage.setItem('pinMode', pinMode);
-            ipcRenderer.send('minimizeAndMaximizeMode', pinMode);
+            setPinModeState(pinMode)
+            ipcRenderer.send('pinModeState', pinMode);
 
             pinModeIcon.style.opacity = pinMode === 'Off' ? 0.2 : 1;
             break;

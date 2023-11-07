@@ -1,6 +1,6 @@
 import { createDivWithClass } from "../helpers/element/div-with-class.js";
 import { createAlignmentAndSpacing } from "../helpers/style/alignment-and-spacing.js";
-import { setUserPreferences } from "../../core/pre-configuration/user-preferences.js";
+import { setUserPreferences } from "../../core/preferences/pre-configuration/user-preferences.js";
 import { createQuickModesIcon } from "../layout/quick-modes-icon.js";
 import { createCloseApplicationButton } from "../layout/close-application-icon.js";
 import { createSeparationLines } from "../layout/separation-line.js";
