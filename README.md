@@ -59,6 +59,7 @@ Para instalar o aplicativo em seu computador siga as seguintes instruções:
 1. No lado direito, dentro da seção **Releases**, clique na versão mais recente disponível (atualmente **v0.8.3-beta.2**).
    - Para instalar versões anteriores clique em **Releases** e selecione a versão que desejar.
 2. Clique no arquivo executável (**.exe**) para baixá-lo.
+   - Caso não encontre o arquivo [clique aqui](https://github.com/luishperna/electron-quick-translation/releases/download/v0.8.3-beta.2/QuickTranslation0.8.3-beta.2-Windows-Setup-0.8.3-beta.2.exe) para baixá-lo automaticamente.
 3. Após baixado, navegue até o diretório onde o arquivo foi salvo (geralmente no diretório Downloads) e clique duas vezes sobre o arquivo.
 4. O aplicativo será instalado automaticamente e, após a conclusão, será executado e estará pronto para a utilização.
    - Caso o Windows mostre uma mensagem de proteção, clique em **More info** e, em seguida, clique em **Run anyway** para permitir a execução do aplicativo.
