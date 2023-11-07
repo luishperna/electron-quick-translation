@@ -56,7 +56,7 @@ Desenvolvido para facilitar o aprendizado de novos idiomas para qualquer pessoa 
 
 Para instalar o aplicativo em seu computador siga as seguintes instruções:
 
-1. No lado direito, dentro da seção **Releases**, clique na versão mais recente disponível (atualmente **v0.8.0-beta.1**).
+1. No lado direito, dentro da seção **Releases**, clique na versão mais recente disponível (atualmente **v0.8.3-beta.2**).
    - Para instalar versões anteriores clique em **Releases** e selecione a versão que desejar.
 2. Clique no arquivo executável (**.exe**) para baixá-lo.
 3. Após baixado, navegue até o diretório onde o arquivo foi salvo (geralmente no diretório Downloads) e clique duas vezes sobre o arquivo.
