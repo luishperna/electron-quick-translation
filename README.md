@@ -13,6 +13,15 @@
 </p>
 
 ---
+	
+DEMONSTRAÇÃO DE USO 🡾 |
+:------------: |
+
+<p align="center">
+  <img src="./src/assets/img/demonstration/demonstration-of-use.gif" alt="Demonstração de uso em git" />
+</p>
+
+---
 
 ## Sumário
 
