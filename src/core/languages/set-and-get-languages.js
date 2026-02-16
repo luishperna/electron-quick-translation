@@ -2,21 +2,29 @@ import { setLanguageTitleSource, setLanguageTitleTarget } from "../../components
 
 export const allLanguages = [
     {
-        name: 'Spanish ES',
-        code: 'es-ES'
-    },
-    {
         name: 'English US',
-        code: 'en-US'
+        code: 'EN-US'
     },
     {
-        name: 'English CA',
-        code: 'en-CA'
+        name: 'Spanish',
+        code: 'ES'
+    },
+    {
+        name: 'French',
+        code: 'FR'
+    },
+    {
+        name: 'Japanese',
+        code: 'JA'
+    },
+    {
+        name: 'Korean',
+        code: 'KO'
     },
     {
         name: 'Portuguese BR',
-        code: 'pt-BR'
-    }
+        code: 'PT-BR'
+    },
 ]
 
 export function getLanguageNameByCode(languageCode) {

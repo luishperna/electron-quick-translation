@@ -1,11 +1,14 @@
 import { createDivWithClass } from "../helpers/element/div-with-class.js";
 import { createSelectionFields } from "../layout/selection-field.js";
 import { createBackButton } from "../layout/back-icon.js";
+import { createApiKeyField } from "../layout/api-key-field.js";
 import { programmingLanguagesWithTemplates } from "../../core/formations/set-and-get-programming-languages.js";
 import { setProgrammingLanguage } from "../../core/formations/set-and-get-programming-languages.js";
 
 function createSettingsPage() {
     let settingsPage = document.getElementById('settings-page');
+
+    let apiKeySection = createApiKeyField();
 
     let selectProgrammingLanguage = createDivWithClass('fields-for-selection');
 
@@ -14,6 +17,7 @@ function createSettingsPage() {
     let warningMessageDiv = createDivWithClass('warning-message');
 
     // Adicionando os elementos criados na página
+    settingsPage.appendChild(apiKeySection);
     settingsPage.appendChild(selectProgrammingLanguage);
     settingsPage.appendChild(backIconDiv);
     settingsPage.appendChild(warningMessageDiv);

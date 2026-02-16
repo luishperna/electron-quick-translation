@@ -1,7 +1,7 @@
 <h1 align="center">Quick Translation</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/v.0.8.3 | beta.2-dcdcdc?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/v.0.9.0 | beta.3-dcdcdc?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
   <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
@@ -29,6 +29,7 @@ DEMONSTRAÇÃO DE USO 🡾 |
 - [:rocket: Principais recursos](#rocket-principais-recursos)
 - [:arrow_down: Como instalar](#arrow_down-como-instalar)
 - [:computer: Como usar](#computer-como-usar)
+- [:key: DeepL API Key](#key-deepl-api-key)
 - [:keyboard: Atalhos](#keyboard-atalhos)
 - [:man_technologist: Modo DEV](#man_technologist-modo-dev)
    - [:clipboard: Listas com os tipos de formatações](#clipboard-listas-com-os-tipos-de-formatações)
@@ -65,10 +66,10 @@ Desenvolvido para facilitar o aprendizado de novos idiomas para qualquer pessoa 
 
 Para instalar o aplicativo em seu computador siga as seguintes instruções:
 
-1. No lado direito, dentro da seção **Releases**, clique na versão mais recente disponível (atualmente **v0.8.3-beta.2**).
+1. No lado direito, dentro da seção **Releases**, clique na versão mais recente disponível (atualmente **v0.9.0-beta.3**).
    - Para instalar versões anteriores clique em **Releases** e selecione a versão que desejar.
 2. Clique no arquivo executável (**.exe**) para baixá-lo.
-   - Caso não encontre o arquivo [clique aqui](https://github.com/luishperna/electron-quick-translation/releases/download/v0.8.3-beta.2/QuickTranslation0.8.3-beta.2-Windows-Setup-0.8.3-beta.2.exe) para baixá-lo automaticamente.
+   - Caso não encontre o arquivo [clique aqui](https://github.com/luishperna/electron-quick-translation/releases/download/v0.9.0-beta.3/QuickTranslation0.9.0-beta.3-Windows-Setup-0.9.0-beta.3.exe) para baixá-lo automaticamente.
 3. Após baixado, navegue até o diretório onde o arquivo foi salvo (geralmente no diretório Downloads) e clique duas vezes sobre o arquivo.
 4. O aplicativo será instalado automaticamente e, após a conclusão, será executado e estará pronto para a utilização.
    - Caso o Windows mostre uma mensagem de proteção, clique em **More info** e, em seguida, clique em **Run anyway** para permitir a execução do aplicativo.
@@ -89,6 +90,23 @@ Para usar o aplicativo siga as seguintes etapas:
 4. Após digitar o texto, pressione a tecla `Enter`.
                                                                                               
 Pronto! O texto traduzido será copiado automaticamente para sua área de transferência. Agora você pode colar onde desejar.
+
+---
+
+## :key: DeepL API Key
+
+As traduções são feitas pela API **DeepL**. Para usar o aplicativo, é necessário configurar uma API Key.
+
+**Como obter e configurar:**
+
+1. Acesse [deepl.com/pro-api](https://www.deepl.com/pro-api) e crie uma conta (há plano gratuito).
+2. Gere uma **API Key** na área da sua conta.
+3. No **Quick Translation**, clique no ícone de engrenagem (Settings).
+4. Cole sua API Key no campo **DeepL API Key** e clique em **Save API Key**.
+
+**Idiomas suportados:** Inglês (EN), Português do Brasil (PT-BR), Espanhol (ES), Japonês (JA) e Coreano (KO).
+
+Se a API Key não estiver configurada, ao tentar traduzir será exibida a mensagem *API key not found* na parte inferior da tela.
 
 ---
 
@@ -201,7 +219,7 @@ O projeto será executado e estará pronto para realizar testes e/ou receber alt
 
 ## :hammer_and_wrench: Tecnologias utilizadas
 
-- `HTML` `CSS` `JavaScript` `Electron` `Electron-builder` `MyMemory`
+- `HTML` `CSS` `JavaScript` `Electron` `Electron-builder` `DeepL API`
 
 ---
 
